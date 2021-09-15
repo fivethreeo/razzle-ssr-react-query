@@ -87,14 +87,20 @@ export const renderApp = async (req, res) => {
       ${helmet.link.toString()}
       ${helmet.script.toString()}
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      ${cssLinksFromAssets(assets, "client")}
+      ${cssLinksFromAssets(public_path, assets, "client")}
       <script type="text/javascript">
       window.PUBLIC_PATH = '${public_path}';
     </script>
   </head>
   <body>
     <div id="root">${markup}</div>
-      ${jsScriptTagsFromAssets(assets, "client", "defer", "crossorigin")}
+      ${jsScriptTagsFromAssets(
+        public_path,
+        assets,
+        "client",
+        "defer",
+        "crossorigin"
+      )}
       <script>
         window.__REACT_QUERY_STATE__ = ${JSON.stringify(dehydratedState)};
     </script>
