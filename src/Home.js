@@ -47,7 +47,7 @@ const Home = () => {
 
 const SuspendedHome = () => {
   return (
-    <SSRSuspense>
+    <SSRSuspense fallback={<h1>Loading Home</h1>}>
       <Home />
     </SSRSuspense>
   );
